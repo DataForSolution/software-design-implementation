@@ -4,7 +4,7 @@
 
 A collection of engineering case studies illustrating how functional requirements become object models, executable Java code, persistence mechanisms, and verifiable behavior. The focus is **design decisions and correctness**, not screenshots or claims of production deployment.
 
-> **Portfolio status:** The reorganized Java 21 Maven application has passed its portfolio-layout build and 635 scenario assertions; Art Management's native UML model and SVG are now available; a refreshed PNG export is pending. The Art Management model is documented, with an editable native UML model and complete vector diagram available.
+> **Portfolio status:** The reorganized Java 21 Maven application has passed its portfolio-layout build and 635 scenario assertions; Art Management's native UML model, SVG, and high-resolution PNG are now available. The Art Management model is documented, with an editable native UML model and complete vector diagram available.
 
 ## Explore the projects
 
@@ -69,7 +69,7 @@ Custom exceptions → invalid art and transaction operations
 
 The four concrete art classes override a shipping-cost operation. Constructor overloading demonstrates alternative initialization paths. Relationships, multiplicities, and encapsulation are modeled explicitly. Transaction completion is designed to verify availability before inventory mutation.
 
-**Deliverable boundary:** This is a **StarUML design case study**. No Java runtime implementation or automated runtime tests are claimed. The native model and full SVG are available in the project directory. A refreshed PNG export from the portfolio-specific model is pending.
+**Deliverable boundary:** This is a **StarUML design case study**. No Java runtime implementation or automated runtime tests are claimed. The native model, full SVG, and high-resolution PNG are available. The PNG was rendered from the reviewed StarUML-exported SVG; it is not a direct export of the portfolio-edited model.
 
 Explore: **[Art Management design overview →](projects/art-management/)**
 
@@ -104,4 +104,4 @@ These case studies were initially developed in an educational context and later 
 
 ## Current development status
 
-The curated import is under review on the `portfolio-project-import` branch. The original academic archive remains private. Public-facing content should be judged by the actual files and verification evidence present here; The Art Management native model and SVG are available, while a refreshed PNG export remains pending; the Java Maven build is verified.
+The curated import is under review on the `portfolio-project-import` branch. The original academic archive remains private. Public-facing content should be judged by the actual files and verification evidence present here; The Art Management native model, SVG, and PNG are available; the Java Maven build is verified.
