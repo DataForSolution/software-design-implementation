@@ -45,9 +45,10 @@ The three custom exceptions specialize Java's `RuntimeException`.
 ## Design artifacts
 
 - [Native StarUML model](model/art-management.mdj) — editable UML project.
+- [Complete class diagram (PNG)](docs/class-diagram.png) — high-resolution raster rendering of the reviewed SVG.
 - [Complete class diagram (SVG)](docs/class-diagram.svg) — scalable vector rendering for detailed inspection.
 
-The native model was imported from the previously reviewed design and its diagram title was made portfolio-neutral. **It has not yet been reopened and re-exported in StarUML after this portfolio-specific edit.** The SVG is the previously validated native export. A matching refreshed PNG remains a release task.
+The native model was imported from the previously reviewed design and its diagram title was made portfolio-neutral. **It has not yet been reopened and re-exported in StarUML after this portfolio-specific edit.** The SVG is the previously validated native export. The PNG is rendered from the reviewed StarUML-exported SVG using CairoSVG, **not exported directly from the portfolio-edited MDJ**. A native StarUML reopen/export of the portfolio MDJ remains an optional consistency check.
 
 ## Verification scope
 
