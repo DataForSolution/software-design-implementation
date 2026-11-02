@@ -305,11 +305,12 @@ public final class Test {
         check(JsonData.object(a.toString()).equals(JsonData.object(loaded.toString())), "all account fields/manifest order");
         for (Reservation r : a.getReservations()) same(r, loaded.retrieveReservation(r.getReservationNumber()));
         check(new Address(JsonData.object(address().toString())).getAddress().equals(address().getAddress()), "address JSON Unicode/escaping");
-        Path expected = Path.of("lib/gson-2.13.2.jar").toRealPath();
         Path actual = Path.of(JsonObject.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toRealPath();
-        check(expected.equals(actual), "real Gson loaded only from project JAR");
-        String hash = java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(expected)));
-        check(hash.equals("dd0ce1b55a3ed2080cb70f9c655850cda86c206862310009dcb5e5c95265a5e0"), "verified Gson 2.13.2 bytes");
+        check(actual.getFileName().toString().equals("gson-2.13.2.jar"),
+                "real Gson 2.13.2 loaded from the Maven runtime classpath");
+        String hash = java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(actual)));
+        check(hash.equals("dd0ce1b55a3ed2080cb70f9c655850cda86c206862310009dcb5e5c95265a5e0"),
+                "Maven-resolved Gson 2.13.2 JAR matches verified bytes");
     }
     private static void testCustomExceptions() throws Exception {
         for (RuntimeException ex : List.of(new IllegalLoadException("A000000001", "account.json"),
