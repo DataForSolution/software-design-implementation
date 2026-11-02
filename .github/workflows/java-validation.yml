@@ -1,0 +1,21 @@
+name: Java portfolio validation
+on:
+  push:
+    branches: [portfolio-project-import, main]
+  workflow_dispatch:
+jobs:
+  lodging-reservation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: projects/lodging-reservation/pom.xml
+      - name: Compile and execute scenario harness
+        working-directory: projects/lodging-reservation
+        run: |
+          mvn -B -ntp -DskipTests package
+          mvn -B -ntp -Dexec.mainClass=lodgingreservation.Test -Dexec.classpathScope=test test-compile exec:java
