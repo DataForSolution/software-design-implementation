@@ -1,22 +1,23 @@
-# Portfolio publication gate
+# Portfolio publication verification
 
-The source repository is a private educational archive. This public repository uses a **new clean Git history** and imports only curated engineering files.
+## Current public repository
+This repository is public and uses new Git history. Its source archive remains private. The `portfolio-project-import` branch is a staged public portfolio, not yet merged into `main`.
 
-## Imported
-- Java source for the final lodging reservation implementation.
-- Single scenario-based Test harness.
-- Maven dependency declaration for Gson 2.13.2 (JAR not copied).
-- Professional project descriptions without course codes, assignments, instructor comments, or local file paths.
+## Imported artifacts
+- Final LodgingReservation Java 21 source and standalone scenario harness.
+- Maven dependency declaration for Gson 2.13.2; no third-party binary JAR committed.
+- Project-specific READMEs and professional root documentation.
+- Art Management project overview only; native diagrams and model are pending review.
 
-## Not yet imported
-- Original class diagrams and native Art Management model, pending copyright and content review.
-- Course handouts, grading rubrics, instructor feedback, local worktrees, and historical ZIPs.
+## Verified Java build
+GitHub Actions run **41481705551** completed successfully on commit `e4cae22855036d7e5c075275e44f85bc09dd4884`.
+- Maven production compilation: PASS.
+- Standalone `lodgingreservation.Test`: **635 checks passed; 26/26 scenarios passed**.
+- Gson loaded from Maven classpath, real JAR identity and SHA-256 verified.
+- Prior initial CI failure was caused by the old test assuming a local `lib/gson-2.13.2.jar`; corrected to resolve the actual Maven classpath location, without weakening the hash check.
 
-## Must verify before promoting this branch to main
-- Java 21 + real Maven-resolved Gson compilation and 26-scenario harness.
-- No personal identifiers, credentials, local paths, or copyrighted course text.
-- Accurate attribution and dependency licensing.
-- Readme commands work from a clean clone.
-- Source and diagrams agree with their documentation.
-
-The portfolio is already a **public GitHub repository**. This staging branch is also public. Do not commit private files or sensitive material. The historical academic repository remains private.
+## Remaining release gates
+- Review and transfer Art Management native StarUML model/diagram only if redistribution is appropriate.
+- Inspect complete public files for PII, school handouts, feedback, private paths and licensing concerns.
+- Confirm README links and accurate status.
+- Promote the curated branch to main only after review and approval.
