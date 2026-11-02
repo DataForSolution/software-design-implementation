@@ -4,13 +4,13 @@
 
 A collection of engineering case studies illustrating how functional requirements become object models, executable Java code, persistence mechanisms, and verifiable behavior. The focus is **design decisions and correctness**, not screenshots or claims of production deployment.
 
-> **Portfolio status:** The Java application has been imported from a previously validated implementation; verification of its reorganized Maven layout is pending. The Art Management model is documented, with its native design files pending a separate publication review.
+> **Portfolio status:** The reorganized Java 21 Maven application has passed its portfolio-layout build and 635 scenario assertions; Art Management native design artifacts remain pending publication review. The Art Management model is documented, with its native design files pending a separate publication review.
 
 ## Explore the projects
 
 | Case study | What it demonstrates | Deliverables | Status |
 |---|---|---|---|
-| **[Lodging Reservation Management](projects/lodging-reservation/)** | Domain modeling, reservation lifecycle, global uniqueness, polymorphic pricing, JSON persistence, error handling | Java 21 source, Maven configuration, standalone scenario tests, technical README | **Implemented**; fresh portfolio-layout build pending |
+| **[Lodging Reservation Management](projects/lodging-reservation/)** | Domain modeling, reservation lifecycle, global uniqueness, polymorphic pricing, JSON persistence, error handling | Java 21 source, Maven configuration, standalone scenario tests, technical README | **Implemented and verified** on GitHub Actions |
 | **[Art Inventory & Transaction Management](projects/art-management/)** | UML analysis, abstract art hierarchy, subtype-specific shipping, customer/transaction relationships, transaction integrity | Design overview; native StarUML model and diagrams pending transfer | **Design only** |
 
 ## Case study 1 — Lodging Reservation Management
@@ -45,7 +45,7 @@ Create and manage accounts; add and retrieve reservations; enforce globally uniq
 **Implementation boundaries:** No graphical interface, payment processing, network service, or production database is included. File persistence is not an account-wide database transaction.
 
 ### Engineering evidence
-The source baseline passed **635 assertions in 26 scenario methods** under Java 21 with the real Gson dependency, including a clean extracted-artifact check. This number describes the validated source baseline; it is **not yet a fresh verification result for this Maven-based portfolio reorganization**.
+The reorganized Maven project **passed 635 assertions across 26 scenarios** on GitHub Actions using Java 21 and the real Maven-resolved Gson 2.13.2 JAR. The test also verifies the JAR's SHA-256 identity.
 
 Explore: **[Source, test harness, setup, and domain details →](projects/lodging-reservation/)**
 
@@ -94,7 +94,7 @@ mvn -q -DskipTests package
 mvn -q -Dexec.mainClass=lodgingreservation.Test -Dexec.classpathScope=test test-compile exec:java
 ```
 
-The `Test` class is a standalone scenario harness, not a JUnit suite. See the [project README](projects/lodging-reservation/README.md) for details. A clean portfolio-build result will be reported after the new layout is executed and checked.
+The `Test` class is a standalone scenario harness, not a JUnit suite. See the [project README](projects/lodging-reservation/README.md) for details. The reorganized Maven build and scenario harness have passed on GitHub Actions.
 
 ## How to evaluate this portfolio
 
@@ -104,4 +104,4 @@ These case studies were initially developed in an educational context and later 
 
 ## Current development status
 
-The curated import is under review on the `portfolio-project-import` branch. The original academic archive remains private. Public-facing content should be judged by the actual files and verification evidence present here; pending design artifacts and build checks are explicitly identified rather than implied to be complete.
+The curated import is under review on the `portfolio-project-import` branch. The original academic archive remains private. Public-facing content should be judged by the actual files and verification evidence present here; Art Management design artifacts remain pending publication review; the Java Maven build is verified.
